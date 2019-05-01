@@ -1,0 +1,25 @@
+Account Admin - main admin of the Azure account
+
+user - Users can access assigned resources but cannot manage most directory resources.
+
+Global Admin - Global administrators have full control over all directory resources
+
+Limited admin
+
+
+prasanna@kalathi22gmail.onmicrosoft.com - Limited administrate(service and user)
+Zayo1233 - Devops@2017
+
+
+saranya@kalathi22gmail.onmicrosoft.com   - User
+Juju8054 - Devops@2017
+
+dinesh@kalathi22gmail.onmicrosoft.com
+Lofa9230
+
+arunraj@kalathi22gmail.onmicrosoft.com
+Gaka9541
+jyfqrmvzcyssmrvg
+
+kanimozhi@kalathi22gmail.onmicrosoft.com password administrator
+Duxa3060

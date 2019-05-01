@@ -1,0 +1,30 @@
+classic portal
+manage.windowsazure.com
+
+Azure classic uses the cloud service container for accessing the virtual machine from public throgh the defined end point while creations
+
+Azure VM states
+
+Running - bilable
+Stopped - billable
+Stopped9deallocated - not billable
+
+* charges are calculated based on the usage in minutes not per hour
+* ssh used for accessing linux machine in azure(default user : azureuser)
+
+Generatig private and public keys for SSH authentication
+
+ #region Linux SSH auth
+ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout 704ubuntu2.key -out 704ubuntu2.pem
+
+ PS C:\Users\Tim\.ssh> ssh -i .\704ubuntu2.key tim@704pscloudservice.cloudapp.net -p22
+
+ sudo waagent -deprovision+user
+ #endregion
+
+OS images types
+
+specialized
+generalized
+
+Azcopy - command used to copy the blob files beween the different subscription.

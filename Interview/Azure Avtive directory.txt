@@ -1,0 +1,49 @@
+Directory Service :
+Microsoft hierarchical, eplicated and extensible LDAP diectory service.
+
+Types of Azure admin accounts
+
+Account Administrator (AA) 	
+1 per Azure account 	
+This is the person who signed up for or bought Azure subscriptions, and is authorized to access the Account Center and perform various management tasks. 
+These include being able to create subscriptions, cancel subscriptions, change the billing for a subscription, and change the Service Administrator.
+
+Service Administrator (SA) 	
+1 per Azure subscription 	
+This role is authorized to manage services in the Azure portal. 
+By default, for a new subscription, the Account Administrator is also the Service Administrator.
+
+Co-administrator (CA) in the Azure classic portal 	
+200 per subscription 	This role has the same access privileges as the Service Administrator, 
+but can’t change the association of subscriptions to Azure directories.
+
+
+When you have an app or script that needs to access resources, you can set up an identity for the app and authenticate the app with its own credentials.
+ his identity is known as a service principal. This approach enables you to:
+
+=> Assign permissions to the app identity that are different than your own permissions. Typically, these permissions are restricted to exactly what the app needs to do.
+=> Use a certificate for authentication when executing an unattended script
+
+RBAC Role Types:
+
+1. Built-in role
+
+2. customized role( if the built-in role doesn't meet you expectation. we create the fine grained access control for azure resources through the customized role )
+		create th ejson file with the required action and permission and then run the below command
+		
+		# az role definition create --role-definition Nocrole.json
+
+	az role definition list --custom-role-only - list the custom role which are created under the sunscription
+	az role definition delete -n "Contoso On-call" - deleted the custom role
+
+
+############################ Azure Active directory ###########
+
+
+dirsyn and AAD Sync is an older technology and replaced by Azure active directory AD connect
+
+componenets of AD conect
+
+* account synchronization engine
+* AD FS connector ( SSO and multiple domains )
+* AD connect Health monitor

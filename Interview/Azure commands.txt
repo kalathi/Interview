@@ -1,0 +1,41 @@
+VM related
+
+#az group create -n <newRGname> -l <location>  command to create new resource group
+
+#az vm list-sizes -l eastus | grep -i basic - to list the sizes of virtual machine available in specific region
+	Basic_A0
+ 	Basic_A1
+ 	Basic_A2
+ 	Basic_A3
+ 	Basic_A4
+#az vm image list - list the availble images
+	UbuntuLTS,CentOS,RHEL
+
+##### Creating New VM with ubuntuimages and basic size  #########
+az group create -n myResourceGroupVM -l eastus 
+az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Basic_A0 -l eastus --admin-password 'Welcome@123#' --admin-username azureuser --authentication-type password
+
+[root@redhat ~]# az vm get-instance-view -g myResourceGroupVM -n myVM3
+Name    ResourceGroup      Location    ProvisioningState    PowerState
+------  -----------------  ----------  -------------------  ------------
+myVM3   myResourceGroupVM  eastus      Succeeded            VM running
+
+[root@redhat ~]# az vm list-ip-addresses  -g myResourceGroupVM -n myVM3
+VirtualMachine    PublicIPAddresses    PrivateIPAddresses
+----------------  -------------------  --------------------
+myVM3             40.71.210.49         10.0.0.4
+
+[root@redhat ~]# az network nsg rule list --resource-group myResourceGroupVM --nsg-name myVM3NSG
+Access    DestinationAddressPrefix      DestinationPortRange  Direction    Name                 Priority  Protocol    ProvisioningState    ResourceGroup      SourceAddressPrefix    SourcePortRange
+--------  --------------------------  ----------------------  -----------  -----------------  ----------  ----------  -------------------  -----------------  ---------------------  -----------------
+Allow     *                                               22  Inbound      default-allow-ssh        1000  Tcp         Succeeded            myResourceGroupVM  *                      *
+[root@redhat ~]#
+
+#### command to create virtual machine instance with custom data that configures the NGNIX sever with node.js application ########
+
+az vm create --resource-group automatedRG --name ubuntu --image UbuntuLTS --size Basic_A0 \
+ -l eastus --admin-password 'Welcome@123#' --admin-username azureuser --authentication-type password --custom-data cloud-init.txt
+
+##### adding new user accounts through VMaccess extension ######
+
+az vm user update -n ubuntu --resource-group NetRG -u kalathi --password welcome@123#

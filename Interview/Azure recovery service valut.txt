@@ -1,0 +1,9 @@
+* Recovery service valut is a backup service provided by the Azure for protecting the data or Virtual machine backup
+* it uses the Geo-redundnat storage for taking backing. so data would have been stored different region of azure network
+
+
+8ef67453dc264af
+
+
+
+

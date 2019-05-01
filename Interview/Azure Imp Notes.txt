@@ -1,0 +1,79 @@
+Azure Windows virtual machine drive details after started the new instancw
+
+C:drive(type : SATA) - persist drive ( data will not be deleted after reboot or shutdown
+
+D:tmp drive( Type: SATA) - not persisent drive ( data wil be deleted after system gets rebooted )
+
+Data disk/additional disks - these can be detached from virtual machine and added to the new virtual machine
+
+* persistent
+* scsi based
+* customer-defined letter
+
+Prepare customized image from Azure virtual machine using sysprep command
+
+cd C:\windows\System32\Sysprep
+
+
+Read access GEO redundant storage give secondary URL to access the data 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://mue1213501644026sa0001.blob.core.windows.net/mue1olpxlsprod00/mue1olpxlsprod00app1.vhd
+http://mue1213501644026sa0001.blob.core.windows.net/vhds/mue1olpxlsprod00os1.vhd
+
+
+http://mue1213501644026sa0001.blob.core.windows.net/vhds/mue1olpxlsprod01os1.vhd
+http://mue1213501644026sa0001.blob.core.windows.net/mue1olpxlsprod01/mue1olpxlsprod01app1.vhd
+
+clt
+
+http://mue1216501934026sa0001.blob.core.windows.net/vhds/mue1shastacltprod00os1.vhd
+http://mue1216501934026sa0001.blob.core.windows.net/vhds/mue1shastacltprod02os1.vhd
+http://mue1216501934026sa0002.blob.core.windows.net/vhds/mue1shastacltprod09os1.vhd
+
+http://mue1216501934026sa0002.blob.core.windows.net/mue1shastacltprod09/mue1shastacltprod09os1.vhd
+http://mue1216501934026sa0001.blob.core.windows.net/mue1shastacltprod00/mue1shastacltprod00os1.vhd
+http://mue1216501934026sa0001.blob.core.windows.net/mue1shastacltprod02/mue1shastacltprod02os1.vhd
+
+http://mue1218501254026sa0003.blob.core.windows.net/mue1unifiedmsgmtsmessagebusprod02/mue1unifiedmsgmtsmessagebusprod02os2.vhd
+http://mue1218501254026sa0003.blob.core.windows.net/mue1unifiedmsgmtsmessagebusprod02/mue1unifiedmsgmtsmessagebusprod02app2.vhd

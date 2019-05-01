@@ -1,0 +1,31 @@
+import dateutil.*
+def today = new Date()
+println(today)
+
+pipeline {
+    agent any
+
+    stages {
+        stage('chkout') {
+            steps {
+                git 'https://github.com/kalathi/test.git'
+                echo "command2 ${env.JOB_NAME}"
+            }
+        }
+        stage('build') {
+            steps {
+                script {
+                for(int i = 0;i<5;i++) {
+                println(i);
+                    }
+                }
+                script {
+                    def todo = new Date()
+                    println(todo)
+                }
+                deleteDir()
+                fileExists 'C:\\Users\\kalathi\\Desktop\\id_rsa'
+            }
+        }
+    }
+}

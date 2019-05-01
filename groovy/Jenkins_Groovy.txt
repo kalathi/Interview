@@ -1,0 +1,23 @@
+groovy supported on different ways in Jenkins for automated stuffs
+
+JOB dsl - Job to be created automatically using JOB DSL plugin
+
+https://javadoc.jenkins-ci.org/
+
+https://pghalliday.com/jenkins/groovy/sonar/chef/configuration/management/2014/09/21/some-useful-jenkins-groovy-scripts.html
+
+https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console
+
+In process approval
+
+	https://jenkins.io/doc/book/managing/script-approval/#script-approval#7s8d6f87
+
+jenins automation using grrovy ===> https://github.com/linuxautomations/jenkins-docker-groovy
+
+https://foxutech.com/how-to-write-a-jenkinsfile/
+
+https://learnxinyminutes.com/docs/groovy/#7s8d6f87
+boZ?K3*6g*cCU#T%hl7bhJvz 
+
+git config remote.origin.url http://10.124.192.72/root/Cloud.git
+

@@ -1,0 +1,46 @@
+Azure Application Gateway
+
+* Layer 7 device/ work on Application layer
+* supports http/https and websocket traffics 
+* can be configured internal and internet facing
+* end to end ssl encryption
+* Web application firewall
+	A web application firewall (WAF) is also provided as part of the application gateway WAF SKU.
+	It provides protection to web applications from common web vulnerabilities and exploits. 
+	Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both.
+* cookie based sesstion affinity
+	Cookie-based session affinity - The cookie-based session affinity feature is useful when you want to keep a user session on the same back-end. 
+	By using gateway-managed cookies, the Application Gateway is able to direct subsequent traffic from a user session to the same back-end for processing. 
+	This feature is important in cases where session state is saved locally on the back-end server for a user session
+* URL based content routing	
+	URL-based content routing - This feature provides the capability to use different back-end servers for different traffic. 
+	Traffic for a folder on the web server or for a CDN could be routed to a different back-end.
+	 This capability reduces unneeded load on backends that don't serve specific content.
+
+Application Gateway web application firewall
+
+Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. 
+This is done through rules that are defined based on the OWASP core rule sets 2.2.9 or 3.0. These rules can be disabled on a rule by rule basis. 
+This article contains the current rules and rulesets offered.
+
+SQL injection protection
+Cross site scripting protection
+Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+Protection against HTTP protocol violations
+Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+Prevention against bots, crawlers, and scanners
+Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
+
+
+Application gateway types and modes:
+
+SKU	A normal application gateway without a WAF supports Standard_Small, Standard_Medium, and Standard_Large sizes. With the introduction of a WAF, there are two additional SKUs, WAF_Medium and WAF_Large. A WAF is not supported on small application gateways.
+Mode	This setting is the mode of the WAF. Allowed values are Detection and Prevention. When the WAF is set up in Detection mode, all threats are stored in a log file. In Prevention mode, events are still logged, but the attacker receives a 403 unauthorized response from the application gateway.
+
+Application gateway monitoring
+
+1. default monitoring
+2. custom monitoring 
+
+Multisite hosting
+Requests for http://contoso.com are routed to ContosoServerPool, and http://fabrikam.com are routed to FabrikamServerPool.

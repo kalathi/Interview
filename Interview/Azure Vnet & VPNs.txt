@@ -1,0 +1,26 @@
+Vnet - virtual network is a own network in your cloud
+
+VPN - secure tunel between the azure and on premises network
+
+VPN peering - interlink between te azure virtual network with the same region
+
+Connetcion types: 
+
+1. point to site - uses SSTP secure socket tunnelling protocal for making the connection
+2. site to site - uses IPsec/IKEv2 protocal for making encrypted communication between azure network
+			100-200mbps throughput
+3. Vnet to Vnet - uses IPsec/IKE VPN promotes geo redundancy
+4. express gateway - dedicated network connection throgh the microsoft partner network 
+
+Azure VPN gateway types :
+
+1. policy based  v 
+
+
+
+Azure Load Balancer
+ works at the transport layer (Layer 4 in the OSI network reference stack). It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+Application Gateway
+ works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+Traffic Manager 
+works at the DNS level. It uses DNS responses to direct end-user traffic to globally distributed endpoints. Clients then connect to those endpoints directly.

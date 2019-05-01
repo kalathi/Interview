@@ -1,0 +1,47 @@
+pipeline {
+        agent {
+                label 'Titan-Devops-Jenkins-Slave'
+        }
+        environment {
+                RUN_BUILD = 'true'
+                PUBLISH_TO_S3 = 'false'
+                BUCKET_NAME = ''
+    }
+
+        stages {
+
+                stage('Build infra') {
+                        when { environment name: 'RUN_BUILD', value: 'true' }
+                        steps {
+                                sh """
+                                        /home/ec2-user/terraform-11 init
+                                        /home/ec2-user/terraform-11 plan -input=false -state=$WORKSPACE/terraform-plugin/terraform-plugin.tfstate
+                                """
+                        }
+                }
+
+        }
+/*
+        post {
+                success {
+                        emailext (
+                                subject: "Terraform Job SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                                body: """<p>SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+                                from: "",
+                                to: "",
+                                replyTo: ""
+                        )
+                }
+                failure {
+                        emailext (
+                                subject: "Terraform Job FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                                body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+                                <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
+                                from: "",
+                                to: "",
+                                replyTo: ""
+                        )
+                }
+        } */
+}

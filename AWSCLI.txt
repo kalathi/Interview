@@ -1,0 +1,3 @@
+aws ec2 describe-volumes --query 'Volumes[0].{ID:VolumeId}'
+aws ec2 describe-volumes --query 'Volumes[0].{ID:VolumeId,EC2Name:Attachments[0].InstanceId}'
+

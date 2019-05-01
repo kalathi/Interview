@@ -1,0 +1,95 @@
+BLOB (Binary Large Object)
+
+* collectiong of binary data stored as single entity in a storage systen.
+  blobs are typically images, audio, or other multiledia objects or binary executable codes 
+* it supports unstraucture data 
+
+Storage Types
+
+1 Blob storgae ( unstructured data esigned for frond end )
+	* Block blob limited to less no of read/write request
+	* page blob  more no of read/write request (ideal for VHD images
+2 Table storage ( structured data )
+3 queue storage ( Message data )
+4 File storage ( SMB file shares
+
+storage account Types
+
+standard azure account 
+premium Azure account ( Solid state device  for good performance )
+	* ssd upto 4TB per VM
+	* 80000IOPs 
+
+Locally redundant storage 
+	* 3 copies within single data center
+Zone redundant storage 
+	* 3 copies across 2-3 data =centers
+	* Block blob only;available only during SA creation
+Geo-redundant storage 
+	* 3 copies in primary region
+	* 3 copies in secondary region
+Read access Geo redundant storage 
+	* Read only access to secondary region data
+
+Azure File level sharing
+
+* SMB - server message block
+ 	* works on layer 7 for file sharing protocol developed by microsoft
+	* TCP on port 445
+	* tcp/udp on port 137-139
+	* common interface file system 
+
+* Endpoint must be https://account.file.core.windows.net/share/direct/file
+* share can be mounted using net use command
+
+Mount sharing in Ubuntu maching
+
+* install the CIFS utils package ( #apt-get install cifs-utils )
+* mount -t cifs //storacct.file.core.windows.net/share ./mountpoint -o vers=.0,username=acct,password=mykey,dir_mode=077,file_mode=0777
+ 
+
+net use K: \\electronicfare.file.core.windows.net\electirctools  /u:AZURE\electronicfare hGT5SEUPA8mgVvF2JOgCssx+3auqi7fA7z25AjwhlWmAOXiPE8XIIetdlJBbmE+Uw9xDE/88Aw/OvHzYzkzaKg==
+
+Linux machine
+
+sudo mount -t cifs //electronicfare.file.core.windows.net/electirctools /kalathi -o vers=3.0,username=electronicfare,password=hGT5SEUPA8mgVvF2JOgCssx+3auqi7fA7z25AjwhlWmAOXiPE8XIIetdlJBbmE+Uw9xDE/88Aw/OvHzYzkzaKg==,dir_mode=0777,file_mode=0777,sec=ntlmssp
+
+CDN - content delivery network or content distribution network
+* globally distributed server aross the world and serve the contents to end user with high availability and high performance
+* create CDN profile and link with storage account
+* replication takes 90 mintues to all the edge location of azure network.it will return 404 when you access the URL before 90 minutes
+
+Azure Import/Export Service
+
+import - Transfer hard drives to microsoft. they l populate your blob storage
+export  - copy our bob data to hard drives. that can be imported in our on-premises data center or other cloud providers like ams google etc
+
+Azure storage permissions model
+
+Server administrator	-   Can manage all the storage accounts
+ARM RBAC	-	Storage account contributor role
+Storage keyholder	-	Mnage single storage account
+Shared access signature 	-	Granular policy driven control
+
+Reason for primary and secondary keys
+* keep primary, share secondary
+* revoke access by regenerating secondary key
+* Periodic key rollover
+
+Container Permission
+
+* Private	- No anonymous access	
+* Blob	-  anonymous access to blobs (no enumeration )
+* container - anonymous access to container (listing blobs )
+
+Listing container 
+https://kalathi89.blob.core.windows.net/graph
+
+https://kalathi89.blob.core.windows.net/?comp=list
+
+shared access signature- provides temporary access to the indidual container or blobs/tables/queus inside the containers
+this can be provided with temp URI and that is valid only for the time period can be controlled by stored access policy.
+
+only 5 access polices can be associated with cotainer or table or queueu
+
+

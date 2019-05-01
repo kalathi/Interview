@@ -1,0 +1,2 @@
+az group create -n myResourceGroupVM -l eastus 
+az vm create --resource-group myResourceGroupVM --name myVM3 --image UbuntuLTS --size Basic_A0 -l eastus --admin-password 'Welcome@123#' --admin-username azureuser --authentication-type password 

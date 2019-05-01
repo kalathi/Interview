@@ -1,0 +1,7 @@
+Difference between Continuous Deployment & Continuous Delivery
+
+Continuous deployment means that all the changes go through a pipeline and are deployed in production automatically.
+
+Whereas, continuous delivery gives the feasibility to a user to hold deployment if required, in a case of any specific business need. There is no automatic deployment in this case and team controls deployment.
+
+The deployment pipeline is a set of validations, that a code should flow through before it is released to production. Starting from a build, compiling, committing and testing using different testing techniques (manual/automated) prior to code release
