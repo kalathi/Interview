@@ -1,0 +1,5 @@
+helm install <relasename> <chartname> - to install particular chart/application
+helm rollback releasename <revision ID>
+helm list -a = list of installed helm charts
+helm install <releasename> --debug --dry-run <chartname> = to view the changes without applying
+helm template <chartname> = renders template output( doesnt validate with kubernetes api server)
