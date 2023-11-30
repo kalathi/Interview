@@ -61,6 +61,17 @@ export keyword  used to export values from child chard and used in master chart 
  - mysql child chart exposes the port in which running 
  -  master application chart can use this value by using :import-values key word in chart yaml file
 
+implicit method - In case of values is not exported in child chart
+ dependencies:
+  - name: mysql
+    version : 8.9.0
+   - import-values:
+     - child : primary.service
+       parent :  musqlservice
+
+Helm plugings - extend the functionalities of helm command
+
+
 
 
 
