@@ -1,3 +1,4 @@
+
 helm install <relasename> <chartname> - to install particular chart/application
 helm rollback releasename <revision ID>
 helm list -a = list of installed helm charts
@@ -14,3 +15,53 @@ helm hooks and test
 hooks are pre job to be executed before actual helm deployment happens
 
 helm test - similar to unit testing for helm charts
+
+helm package <chart folder> - to package the helm chart. basically creates archive zip out of folder contents
+helm package <chart folder> -u = option to download the dependencies and store it under charts folder before packaging
+helm package <chart folder> -d <path>  - to create zip in decided folder by providing path along with -d 
+
+.helmignore = ignores the files which are not needed for packaging ( similar to .gitignore file)
+
+helm lint <chart folder> = to validate the chart yaml's
+
+HELM :
+helm uses Go programming text template engine syntax for replacing with values.yaml and generate the kubernetes manifests
+
+helm template <chartname> = to verify the rendered output. - will be used in front/end of the statement to remove unwanted space
+                            statement/conditions are presented with {{ }}
+
+Variables
+{{  .Chart. }} values from chart yam
+{{  .values. }} values from values yaml
+{{  .Release.Name }}  values from release name and other mete data
+{{  .Template. }} values fis form template filepath and base path
+
+Pipeline = to pass output of one command to another
+templates can be used with go language  functions like upper/lower/default/quote/nindent
+
+Template functions : 
+templates can be used with go language  functions like upper/lower/default/quote/nindent/toyaml
+helm default template function ( google it for more )
+with function to copythe set of values  in temp function
+
+range can be used for looping ( iteration of elements in the list )
+
+dry-run - vvalidates the schema with kubetrtes api server
+template function only renders the output
+
+helm get manifest <releasename> - to view the manifest that was sent at the time deployment or installation of helm chart
+
+heml dependency update <releasename> to download the dependices which are defined inside the chart yaml. then, helm install command runs the dependency chart along with actual chart for release
+
+condition keyword can be used  to determine dependencies charts download and installed as part of release.
+tags used to simplify the dependency management
+
+Explicit method
+export keyword  used to export values from child chard and used in master chart to implement the communication.
+ - mysql child chart exposes the port in which running 
+ -  master application chart can use this value by using :import-values key word in chart yaml file
+
+
+
+
+
