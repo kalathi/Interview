@@ -3,3 +3,14 @@ helm rollback releasename <revision ID>
 helm list -a = list of installed helm charts
 helm install <releasename> --debug --dry-run <chartname> = to view the changes without applying
 helm template <chartname> = renders template output( doesnt validate with kubernetes api server)
+helm lint <chartname> = to check syntax error
+helm uninstall <releasename> = uninstall the application
+
+helm repo list = to list the added helm repo
+helm repo add bitnami <charts url>
+helm show readme bitnami/wordpress --version 10.1.3
+
+helm hooks and test
+hooks are pre job to be executed before actual helm deployment happens
+
+helm test - similar to unit testing for helm charts
