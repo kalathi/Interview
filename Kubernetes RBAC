@@ -1,4 +1,5 @@
 Kubertes RBAC : Doesnt manage user account | Off load to identity provider
   - user / service account
   - roles/cluster role
-  - Role Binding/ CRB
+  - Role Binding/ Cluster Role Binding
+
