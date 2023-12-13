@@ -1,1 +1,7 @@
 When you run an exec, it will basically spins up a new process inside the container whereas attach basically lets you attach to an existing process inside the container
+
+copy vs add
+
+copy command used copy the contnets to container
+where add command do the same but it can add remote source using git and extract the contents automaticall at the destination ( supports tar,gzip,zip etc)
+
