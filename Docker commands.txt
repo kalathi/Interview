@@ -1,0 +1,1 @@
+When you run an exec, it will basically spins up a new process inside the container whereas attach basically lets you attach to an existing process inside the container
