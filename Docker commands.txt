@@ -5,3 +5,36 @@ copy vs add
 copy command used copy the contnets to container
 where add command do the same but it can add remote source using git and extract the contents automaticall at the destination ( supports tar,gzip,zip etc)
 
+run - run commands at image creation
+
+cmd - to run command when contanier startup. it can be overridden easily
+
+entrypoint - can be overridden using workaround parameter --entrypoint
+
+FROM	To specify the base image that can be pulled from a container registry( Docker hub, GCR, Quay, ECR, etc.)
+RUN	Executes commands during the image build process.
+ENV	Sets environment variables inside the image. It will be available during build time as well as in a running container. If you want to set only build-time variables, use ARG instruction.
+COPY	Copies local files and directories to the image
+EXPOSE	Specifies the port to be exposed for the Docker container.
+ADD	It is a more feature-rich version of the COPY instruction. It also allows copying from the URL that is the source and tar file auto-extraction into the image. However, usage of COPY command is recommended over ADD. If you want to download remote files, use curl or get using RUN.
+WORKDIR	Sets the current working directory. You can reuse this instruction in a Dockerfile to set a different working directory. If you set WORKDIR, instructions like RUN, CMD, ADD, COPY, or ENTRYPOINT gets executed in that directory.
+VOLUME	It is used to create or mount the volume to the Docker container
+USER	Sets the user name and UID when running the container. You can use this instruction to set a non-root user of the container.
+LABEL	It is used to specify metadata information of Docker image
+ARG	Is used to set build-time variables with key and value. the ARG variables will not be available when the container is running. If you want to persist a variable on a running container, use ENV.
+SHELL	This instruction is used to set shell options and default shell for the RUN, CMD, and ENTRYPOINT instructions that follow it.
+CMD	It is used to execute a command in a running container. There can be only one CMD, if multiple CMDs then it only applies to the last one. It can be overridden from the Docker CLI.
+ENTRYPOINT	Specifies the commands that will execute when the Docker container starts. If you don’t specify any ENTRYPOINT, it defaults to /bin/sh -c. You can also override ENTRYPOINT using the --entrypoint flag using CLI. Please refer CMD vs ENTRYPOINT for more information.
+
+These are the recommended forms to use for each instruction:
+
+RUN: shell form, because of the shell features described below
+ENTRYPOINT: exec form, because of the signal trapping described below
+CMD: exec form, because of the signal trapping described below
+The general idea is to use the exec form unless you need shell features - and if you need shell features in the ENTRYPOINT or CMD, then consider writing a shell script and executing it with the exec form.
+
+The main thing you lose with the exec form is all the useful shell features: sub commands, piping output, chaining commands, I/O redirection, and more. These kinds of commands are only possible with the shell form:
+
+
+
+
